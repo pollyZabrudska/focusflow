@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function WelcomeScreen() {
   const [intention, setIntention] = useState("");
   const [submittedIntention, setSubmittedIntention] = useState(null);
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +31,6 @@ export default function WelcomeScreen() {
         Good morning, beautiful soul. What is your main intention for today?
       </h1>
 
-      {/* ❗️Показуємо форму тільки якщо намір ще не підтверджено */}
       {!submittedIntention && (
         <form onSubmit={handleSubmit} className="flex gap-3">
           <input
@@ -52,7 +49,6 @@ export default function WelcomeScreen() {
         </form>
       )}
 
-      {/* 👇 Якщо є підтверджений намір — показуємо */}
       {submittedIntention && (
         <div className="mt-6 text-lg text-center text-gray-800 dark:text-gray-100">
           <p className="italic">✨ Today’s intention:</p>
